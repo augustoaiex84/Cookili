@@ -131,6 +131,48 @@ window.COOKILI = {
     ]
   },
 
+  /* ---------- PRÓXIMAS FEIRAS ----------
+     Cada feira é um bloco { ... }. Para ADICIONAR: copie um bloco,
+     cole abaixo do último (com vírgula entre eles) e troque os dados.
+
+     - data: dia da feira no formato DD/MM/AAAA, ex.: "05/12/2026"
+     - dataFim: último dia, se durar mais de um dia (senão deixe "")
+     - endereco: usado no botão "Como chegar" (Google Maps)
+     - link: página/Instagram da feira (opcional, deixe "" se não houver)
+     - mostrar: true para aparecer no site, false para esconder
+
+     Feiras que já passaram somem do site sozinhas, e a lista é
+     ordenada por data automaticamente. Se não houver nenhuma feira
+     futura, aparece o texto de "semFeiras". */
+  feiras: {
+    etiqueta: "Agenda",
+    titulo: "Próximas Feiras",
+    texto: "Venha provar nossos cookies pessoalmente! Confira onde vamos estar nas próximas semanas.",
+    semFeiras: "Novas datas em breve! Acompanhe nosso Instagram para não perder nenhuma feira.",
+    lista: [
+      {
+        nome: "Nome da Feira (modelo)",
+        data: "05/12/2026",
+        dataFim: "06/12/2026",
+        horario: "10h às 18h",
+        local: "Nome do local",
+        endereco: "Rua Exemplo, 100 - São Paulo, SP",
+        link: "",
+        mostrar: false
+      },
+      {
+        nome: "Outra Feira (modelo)",
+        data: "13/12/2026",
+        dataFim: "",
+        horario: "9h às 15h",
+        local: "Praça Exemplo",
+        endereco: "Praça Exemplo - São Paulo, SP",
+        link: "",
+        mostrar: false
+      }
+    ]
+  },
+
   /* ---------- CHAMADA FINAL ---------- */
   chamada: {
     titulo: "Bateu aquela vontade?",

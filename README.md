@@ -8,7 +8,7 @@ Site simples (HTML, CSS e JavaScript puros): não precisa instalar nada, não te
 
 ## ✏️ Como editar o site (sem programador)
 
-Quase tudo fica em **um arquivo só: `conteudo.js`**. Ali estão os textos, sabores, preços, telefone, endereço, horário e redes sociais.
+Quase tudo fica em **um arquivo só: `conteudo.js`**. Ali estão os textos, sabores, preços, agenda de feiras, telefone, endereço, horário e redes sociais.
 
 ### Pelo próprio GitHub (navegador ou celular)
 1. Abra o repositório no GitHub e clique no arquivo **`conteudo.js`**.
@@ -35,6 +35,7 @@ Quase tudo fica em **um arquivo só: `conteudo.js`**. Ali estão os textos, sabo
 | Tirar um sabor por um tempo | Mude `disponivel: true` para `disponivel: false` |
 | Mudar telefone/WhatsApp | `contato > telefone` e `contato > whatsapp` (WhatsApp: 55 + DDD + número, só números) |
 | Mudar endereço/horário | `contato > endereco` e `contato > horario` |
+| Divulgar uma feira | Em `feiras > lista`, preencha nome, `data` (DD/MM/AAAA), horário e endereço, e mude `mostrar` para `true`. Feiras que já passaram somem sozinhas |
 | Mostrar Facebook ou TikTok | Cole o link em `redes > facebook` / `redes > tiktok` (vazio = ícone escondido) |
 
 ### Trocar ou adicionar fotos

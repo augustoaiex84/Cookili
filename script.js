@@ -165,6 +165,94 @@
     diferenciais.appendChild(li);
   });
 
+  /* ---------- Próximas feiras ---------- */
+  var MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+  var DIAS = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+
+  // "05/12/2026" -> Date (ou null se estiver em outro formato)
+  function lerData(t) {
+    var m = String(t || "").trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if (!m) return null;
+    var d = new Date(+m[3], +m[2] - 1, +m[1]);
+    return d.getMonth() === +m[2] - 1 ? d : null;
+  }
+
+  var feirasCfg = C.feiras || {};
+  var hoje = new Date();
+  hoje.setHours(0, 0, 0, 0);
+
+  var feiras = (feirasCfg.lista || [])
+    .filter(function (f) { return f.mostrar !== false; })
+    .map(function (f) {
+      var inicio = lerData(f.data);
+      var fim = lerData(f.dataFim) || inicio;
+      if (!inicio) console.warn("Feira '" + f.nome + "' com data inválida (use DD/MM/AAAA):", f.data);
+      return { f: f, inicio: inicio, fim: fim && fim >= inicio ? fim : inicio };
+    })
+    .filter(function (x) { return x.inicio && x.fim >= hoje; })
+    .sort(function (a, b) { return a.inicio - b.inicio; });
+
+  var listaFeiras = $("#listaFeiras");
+  feiras.forEach(function (x) {
+    var f = x.f;
+    var mesmoDia = x.fim.getTime() === x.inicio.getTime();
+    var li = el("li", "feira revelar");
+
+    var data = el("div", "feira__data");
+    data.setAttribute("aria-hidden", "true");
+    data.appendChild(el("strong", null, mesmoDia ? x.inicio.getDate() : x.inicio.getDate() + "–" + x.fim.getDate()));
+    data.appendChild(el("span", null, MESES[x.inicio.getMonth()] +
+      (x.fim.getMonth() !== x.inicio.getMonth() ? "/" + MESES[x.fim.getMonth()] : "")));
+
+    var info = el("div", "feira__info");
+    var quando = mesmoDia
+      ? DIAS[x.inicio.getDay()] + ", " + x.inicio.toLocaleDateString("pt-BR", { day: "numeric", month: "long" })
+      : (x.fim.getMonth() === x.inicio.getMonth()
+          ? x.inicio.getDate()
+          : x.inicio.toLocaleDateString("pt-BR", { day: "numeric", month: "long" })) + " a " +
+        x.fim.toLocaleDateString("pt-BR", { day: "numeric", month: "long" });
+    info.appendChild(el("p", "feira__quando", quando + (f.horario ? " · " + f.horario : "")));
+    info.appendChild(el("h3", "feira__nome", f.nome));
+    if (f.local || f.endereco) {
+      var onde = el("p", "feira__local");
+      onde.appendChild(icone("local"));
+      onde.appendChild(el("span", null, [f.local, f.endereco].filter(Boolean).join(" · ")));
+      info.appendChild(onde);
+    }
+
+    var acoes = el("div", "feira__acoes");
+    if (f.endereco || f.local) {
+      var mapa = el("a", "feira__link", "Como chegar");
+      mapa.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(f.endereco || f.local);
+      mapa.target = "_blank";
+      mapa.rel = "noopener";
+      mapa.appendChild(icone("seta"));
+      acoes.appendChild(mapa);
+    }
+    if (f.link) {
+      var mais = el("a", "feira__link", "Saiba mais");
+      mais.href = f.link;
+      mais.target = "_blank";
+      mais.rel = "noopener";
+      mais.appendChild(icone("seta"));
+      acoes.appendChild(mais);
+    }
+    if (acoes.childNodes.length) info.appendChild(acoes);
+
+    li.appendChild(data);
+    li.appendChild(info);
+    listaFeiras.appendChild(li);
+  });
+
+  if (!feiras.length) {
+    listaFeiras.hidden = true;
+    $("#feirasVazio").hidden = false;
+    if (C.redes && C.redes.instagram) {
+      $("#feirasInstagram").href = C.redes.instagram;
+      $("#feirasInstagram").hidden = false;
+    }
+  }
+
   /* ---------- Menu mobile ---------- */
   var menu = $("#menu");
   var menuBotao = $("#menuBotao");

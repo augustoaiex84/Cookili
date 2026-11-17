@@ -151,14 +151,14 @@ window.COOKILI = {
     semFeiras: "Novas datas em breve! Acompanhe nosso Instagram para não perder nenhuma feira.",
     lista: [
       {
-        nome: "Nome da Feira (modelo)",
+        nome: "Feira Medieval",
         data: "05/12/2026",
         dataFim: "06/12/2026",
         horario: "10h às 18h",
-        local: "Nome do local",
-        endereco: "Rua Exemplo, 100 - São Paulo, SP",
+        local: "Praça Ayrton Senna",
+        endereco: "Rua Curitiba, 290 - Paraíso - São Paulo, SP",
         link: "",
-        mostrar: false
+        mostrar: true
       },
       {
         nome: "Outra Feira (modelo)",

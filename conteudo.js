@@ -45,7 +45,7 @@ window.COOKILI = {
 
   /* ---------- TOPO DA PÁGINA ---------- */
   destaque: {
-    selo: "🍪 Feitos Fresquinhos Todo Dia",
+    selo: "🍪 Cookies fresquinhos todos dias",
     tituloLinha1: "Felicidade",
     tituloLinha2: "Artesanal",
     texto: "Cookies artesanais feitos com amor, ingredientes premium e um toque de magia. Experimente a perfeição quentinha e macia em cada mordida.",
@@ -119,7 +119,7 @@ window.COOKILI = {
     titulo: "Nossa História",
     subtitulo: "Conheça a paixão por trás de cada cookie que fazemos",
     paragrafos: [
-      "A **Cookili** nasceu de um sonho simples: criar os melhores cookies artesanais da cidade. Tudo começou na cozinha de casa, com receitas de família passadas de geração em geração.",
+      "A Cookili nasceu de um sonho simples: criar os melhores cookies artesanais da cidade. Tudo começou na cozinha de casa, com receitas de família passadas de geração em geração.",
       "Hoje, mantemos a mesma dedicação e amor em cada cookie que preparamos. Usamos apenas ingredientes premium, chocolate belga importado e uma pitada especial de carinho que faz toda a diferença.",
       "Nossa missão é simples: fazer você sorrir com cada mordida. Seja para um momento especial ou para alegrar o dia a dia, nossos cookies são feitos para criar memórias doces."
     ],
@@ -133,8 +133,8 @@ window.COOKILI = {
 
   /* ---------- CHAMADA FINAL ---------- */
   chamada: {
-    titulo: "Bateu a Vontade?",
-    texto: "Visite-nos hoje ou peça online para retirada. Cookies fresquinhos estão a poucos momentos de distância.",
+    titulo: "Bateu aquela vontade?",
+    texto: "Visite-nos hoje ou peça online para retirada. Cookies fresquinhos estão a poucas mordidas de distância.",
     botao: "Pedir para Retirada"
   },
 

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cookili | Cookies Artesanais</title>
+  <meta name="description" content="Cookili: cookies artesanais feitos com amor e ingredientes premium. Peça pelo WhatsApp ou retire na loja.">
+  <meta name="theme-color" content="#E99A2C">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cookili | Cookies Artesanais">
+  <meta property="og:description" content="Cookies artesanais feitos com amor e ingredientes premium.">
+  <meta property="og:image" content="imagens/hero.jpg">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="icon" href="imagens/icone.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="preload" as="image" href="imagens/hero.jpg">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo" id="topo">
+    <div class="container topo__linha">
+      <a class="marca" href="#inicio" aria-label="Página inicial">
+        <svg class="marca__icone" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-cookie"/></svg>
+        <span data-campo="nome">Cookili</span>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Principal">
+        <a href="#cardapio">Cardápio</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#localizacao">Localização</a>
+        <a class="botao botao--primario botao--pequeno menu__acao" data-whatsapp href="#" target="_blank" rel="noopener">Peça Agora</a>
+      </nav>
+
+      <div class="topo__acoes">
+        <button class="carrinho-botao" id="abrirCarrinho" type="button" aria-label="Abrir carrinho">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sacola"/></svg>
+          <span class="carrinho-botao__qtd" id="qtdCarrinho" hidden>0</span>
+        </button>
+        <button class="menu-botao" id="menuBotao" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- INÍCIO -->
+    <section class="hero" id="inicio">
+      <div class="container hero__grade">
+        <div class="hero__texto">
+          <span class="selo" data-campo="destaque.selo"></span>
+          <h1 class="hero__titulo">
+            <span data-campo="destaque.tituloLinha1"></span>
+            <span class="destaque-cor" data-campo="destaque.tituloLinha2"></span>
+          </h1>
+          <p class="hero__descricao" data-campo="destaque.texto"></p>
+          <div class="hero__botoes">
+            <a class="botao botao--primario" data-whatsapp href="#" target="_blank" rel="noopener">Peça Agora</a>
+            <a class="botao botao--secundario" href="#cardapio">Ver Cardápio</a>
+          </div>
+          <ul class="numeros" id="numeros"></ul>
+        </div>
+        <div class="hero__imagem">
+          <img id="heroImagem" src="imagens/hero.jpg" alt="Pilha de cookies de chocolate quentinhos sobre tábua de madeira" width="870" height="480" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDÁPIO -->
+    <section class="secao" id="cardapio">
+      <div class="container">
+        <header class="secao__cabecalho">
+          <span class="etiqueta" data-campo="cardapio.etiqueta"></span>
+          <h2 class="secao__titulo" data-campo="cardapio.titulo"></h2>
+          <p class="secao__texto" data-campo="cardapio.texto"></p>
+        </header>
+        <ul class="produtos" id="produtos"></ul>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="secao secao--sobre" id="sobre">
+      <div class="container">
+        <header class="secao__cabecalho">
+          <h2 class="secao__titulo" data-campo="sobre.titulo"></h2>
+          <p class="secao__texto" data-campo="sobre.subtitulo"></p>
+        </header>
+        <div class="sobre__grade">
+          <div class="sobre__texto" id="sobreTexto"></div>
+          <ul class="diferenciais" id="diferenciais"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO / CHAMADA -->
+    <section class="secao" id="localizacao">
+      <div class="container">
+        <div class="chamada">
+          <h2 class="secao__titulo" data-campo="chamada.titulo"></h2>
+          <p class="secao__texto" data-campo="chamada.texto"></p>
+          <ul class="infos">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-local"/></svg><a id="linkMapa" href="#" target="_blank" rel="noopener" data-campo="contato.endereco"></a></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-relogio"/></svg><span data-campo="contato.horario"></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-telefone"/></svg><a id="linkTelefone" href="#" data-campo="contato.telefone"></a></li>
+          </ul>
+          <a class="botao botao--primario botao--grande" data-whatsapp href="#" target="_blank" rel="noopener" data-campo="chamada.botao"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape__linha">
+      <a class="marca marca--clara" href="#inicio">
+        <svg class="marca__icone" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-cookie"/></svg>
+        <span data-campo="nome">Cookili</span>
+      </a>
+      <ul class="redes" id="redes" aria-label="Redes sociais"></ul>
+      <p class="rodape__direitos">© <span id="ano"></span> <span data-campo="nome">Cookili</span>. Feito com 🍪</p>
+    </div>
+  </footer>
+
+  <!-- CARRINHO -->
+  <div class="carrinho" id="carrinho" hidden>
+    <div class="carrinho__fundo" data-fechar></div>
+    <aside class="carrinho__painel" role="dialog" aria-modal="true" aria-labelledby="carrinhoTitulo">
+      <header class="carrinho__topo">
+        <h2 id="carrinhoTitulo">Seu pedido</h2>
+        <button class="carrinho__fechar" type="button" data-fechar aria-label="Fechar carrinho">×</button>
+      </header>
+      <ul class="carrinho__itens" id="carrinhoItens"></ul>
+      <p class="carrinho__vazio" id="carrinhoVazio">Seu carrinho está vazio. Que tal um cookie? 🍪</p>
+      <footer class="carrinho__rodape" id="carrinhoRodape">
+        <div class="carrinho__total"><span>Total</span><strong id="carrinhoTotal">R$ 0,00</strong></div>
+        <a class="botao botao--primario botao--cheio" id="enviarPedido" href="#" target="_blank" rel="noopener">Enviar pedido pelo WhatsApp</a>
+        <button class="carrinho__limpar" type="button" id="limparCarrinho">Esvaziar carrinho</button>
+      </footer>
+    </aside>
+  </div>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+  <!-- ÍCONES -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-cookie" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" d="M24 4a20 20 0 1 0 20 20 6 6 0 0 1-7-7 6 6 0 0 1-6-6 6 6 0 0 1-7-7Z"/><g fill="currentColor"><circle cx="16" cy="20" r="2.4"/><circle cx="22" cy="31" r="2.4"/><circle cx="32" cy="29" r="2.4"/><circle cx="14" cy="30" r="1.6"/><circle cx="24" cy="22" r="1.6"/></g></symbol>
+    <symbol id="i-sacola" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 13H5L6 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></g></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-local" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11.5a7 7 0 1 0-14 0C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-telefone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 3h3.5l2 5-2.5 1.5a11 11 0 0 0 6.5 6.5L16 13.5l5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-coracao" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 20s-7.5-4.6-9-9.3C2 7.4 4.3 4.5 7.4 4.5c2 0 3.4 1.1 4.6 2.7 1.2-1.6 2.6-2.7 4.6-2.7 3.1 0 5.4 2.9 4.4 6.2C19.5 15.4 12 20 12 20Z"/></symbol>
+    <symbol id="i-medalha" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="m9 13.5-1.5 7L12 18l4.5 2.5-1.5-7"/></g></symbol>
+    <symbol id="i-pessoas" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M15.5 4.7a3.5 3.5 0 0 1 0 6.6M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></g></symbol>
+    <symbol id="i-estrela" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></symbol>
+    <symbol id="i-folha" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-9 5-14 15-14 0 10-5 15-14 15"/><path d="M5 19 13 11"/></g></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8Z"/></symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.8 2.4 4.6 5 5"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1.3-4A8.5 8.5 0 1 1 8.4 19L4 20Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 1c-1.2-.5-2.5-1.8-3-3l1-1-1-2L9 8.5Z" stroke-width="1.4"/></g></symbol>
+  </svg>
+
+  <noscript><p class="sem-js">Ative o JavaScript para ver o cardápio completo, ou fale conosco pelo telefone (11) 99644-3658.</p></noscript>
+
+  <script src="conteudo.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
